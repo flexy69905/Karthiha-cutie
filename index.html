@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5eef8;
+    }
+
+    #valentine-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #valentine-message {
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff5e62;
+      margin-bottom: 10px;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.1);
+      }
+    }
+
+    #teddy-bear {
+      width: 200px; /* Adjust the size as needed */
+      margin-bottom: 20px;
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .button {
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 12px;
+      background-color: #ff5e62;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .button:disabled {
+      background-color: #aaa; /* Change disabled button color */
+      cursor: not-allowed;
+    }
+
+    .button:hover:not([disabled]) {
+      background-color: #e34953;
+    }
+  </style>
+</head>
+<body>
+  <div id="valentine-container">
+    <div id="valentine-message">
+      Do you want to be my valentine?
+    </div>
+
+    <img id="teddy-bear" src="C:\Users\RogStrix\Desktop\projects\valentine\yayy_image.jpg" alt="Teddy Bear with Ring">
+
+    <div class="button-container">
+      <button class="button" onclick="redirectYes()">Yes</button>
+      <button id="noButton" class="button" onclick="moveNoButton()">No</button>
+    </div>
+  </div>
+
+  <script>
+    function moveNoButton() {
+      var noButton = document.getElementById('noButton');
+      var newX = Math.floor(Math.random() * (window.innerWidth - noButton.clientWidth));
+      var newY = Math.floor(Math.random() * (window.innerHeight - noButton.clientHeight));
+      
+      noButton.style.position = 'absolute';
+      noButton.style.left = newX + 'px';
+      noButton.style.top = newY + 'px';
+    }
+
+    function redirectYes() {
+      window.location.href = 'yayyy.html'; // Redirect to the YAYYY page
+    }
+  </script>
+</body>
+</html>
